@@ -1,0 +1,339 @@
+/* 웹뷰용 법률 문서 페이지 스타일 */
+
+:root {
+  --primary-color: #3B3045;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #e0f7fa;
+  --border-color: #e0e0e0;
+  --highlight-color: #fff9c4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 0;
+  margin: 0;
+}
+
+/* 헤더 스타일 */
+.header {
+  background-color: var(--accent-color);
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin: 0;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1em;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 메인 콘텐츠 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 30px 0 15px 0;
+  color: var(--primary-color);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 25px 0 10px 0;
+  color: var(--text-color);
+}
+
+/* 문단 스타일 */
+p {
+  margin-bottom: 15px;
+  text-align: justify;
+  word-break: keep-all;
+}
+
+/* 리스트 스타일 */
+ul, ol {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* 테이블 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--accent-color);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* 강조 스타일 */
+.highlight {
+  background-color: var(--highlight-color);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.important {
+  background-color: #ffebee;
+  border-left: 4px solid #f44336;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+
+/* 연락처 정보 */
+.contact-info {
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* 날짜 정보 */
+.date-info {
+  text-align: right;
+  font-size: 0.9em;
+  color: #666;
+  margin: 30px 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+/* 푸터 */
+.footer {
+  margin-top: 50px;
+  padding: 30px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* 편집 가능한 영역 표시 */
+.editable {
+  border: 2px dashed #ddd;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  position: relative;
+}
+
+.editable::before {
+  content: "여기에 내용을 붙여넣으세요";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 0.8em;
+  color: #999;
+  background-color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  .header {
+    padding: 15px;
+  }
+  
+  .header h1 {
+    font-size: 1.3em;
+  }
+  
+  .back-button {
+    left: 15px;
+    font-size: 1em;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  h2 {
+    font-size: 1.2em;
+  }
+  
+  table {
+    font-size: 0.85em;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+}
+
+/* 웹뷰 전용 스타일 */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 15px 10px;
+  }
+  
+  .header {
+    padding: 12px;
+  }
+  
+  .header h1 {
+    font-size: 1.2em;
+  }
+  
+  h2 {
+    font-size: 1.1em;
+    margin: 20px 0 10px 0;
+  }
+  
+  .contact-info {
+    padding: 15px;
+  }
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --primary-color: #E0DAD2;
+    --accent-color: #2a2a2a;
+    --border-color: #333;
+  }
+  
+  .editable {
+    background-color: #2a2a2a;
+    border-color: #555;
+  }
+  
+  .contact-info {
+    background-color: #2a2a2a;
+  }
+  
+  .footer {
+    background-color: #2a2a2a;
+  }
+  
+  .important {
+    background-color: #2a1a1a;
+  }
+}
+
+/* 인쇄 스타일 */
+@media print {
+  .header {
+    position: static;
+    background: none;
+    border: none;
+  }
+  
+  .back-button {
+    display: none;
+  }
+  
+  .editable::before {
+    display: none;
+  }
+  
+  .editable {
+    border: none;
+    background: none;
+  }
+}
+
+/* 스크롤바 스타일 (웹킷 기반 브라우저) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+} 

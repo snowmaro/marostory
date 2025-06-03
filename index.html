@@ -327,9 +327,71 @@
 
   <footer>
     <div class="container">
-      ⓒ 2025 MaroStory. All Rights Reserved.
+      <!-- 법률 문서 링크 -->
+      <div class="legal-links">
+        <a href="terms.html" target="_blank" rel="noopener noreferrer">이용약관</a>
+        <span class="separator">|</span>
+        <a href="privacy.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a>
+      </div>
+      
+      <!-- 저작권 정보 -->
+      <div>
+        ⓒ 2025 MaroStory. All Rights Reserved.
+      </div>
     </div>
   </footer>
+
+  <script>
+    // 법률 문서 링크 클릭 시 웹뷰에서 열기
+    document.addEventListener('DOMContentLoaded', function() {
+      const legalLinks = document.querySelectorAll('.legal-links a');
+      
+      legalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // 웹뷰 환경 감지
+          const isWebView = window.navigator.userAgent.includes('wv') || 
+                           window.webkit?.messageHandlers || 
+                           window.Android;
+          
+          if (isWebView) {
+            e.preventDefault();
+            const url = this.href;
+            
+            // iOS 웹뷰
+            if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.openLegalPage) {
+              window.webkit.messageHandlers.openLegalPage.postMessage({
+                url: url,
+                type: this.textContent.trim()
+              });
+            }
+            // Android 웹뷰
+            else if (window.Android && window.Android.openLegalPage) {
+              window.Android.openLegalPage(url, this.textContent.trim());
+            }
+            // 일반 웹뷰 - 새 창으로 열기
+            else {
+              window.open(url, '_blank', 'noopener,noreferrer');
+            }
+          }
+          // 일반 브라우저에서는 기본 동작 (새 탭)
+        });
+      });
+    });
+    
+    // 스크롤 시 부드러운 애니메이션
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
