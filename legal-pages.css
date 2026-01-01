@@ -101,7 +101,8 @@ p {
 }
 
 /* 리스트 스타일 */
-ul, ol {
+ul,
+ol {
   margin: 15px 0;
   padding-left: 25px;
 }
@@ -118,7 +119,8 @@ table {
   font-size: 0.95em;
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--border-color);
   padding: 12px;
   text-align: left;
@@ -184,6 +186,30 @@ th {
   color: #666;
 }
 
+.footer-business {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8em;
+  color: #888;
+  line-height: 1.6;
+}
+
+.footer-business span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-business span::after {
+  content: "|";
+  margin-left: 10px;
+  color: #ddd;
+}
+
+.footer-business span:last-child::after {
+  content: "";
+}
+
 /* 편집 가능한 영역 표시 */
 .editable {
   border: 2px dashed #ddd;
@@ -211,33 +237,34 @@ th {
   .container {
     padding: 20px 15px;
   }
-  
+
   .header {
     padding: 15px;
   }
-  
+
   .header h1 {
     font-size: 1.3em;
   }
-  
+
   .back-button {
     left: 15px;
     font-size: 1em;
   }
-  
+
   h1 {
     font-size: 1.5em;
   }
-  
+
   h2 {
     font-size: 1.2em;
   }
-  
+
   table {
     font-size: 0.85em;
   }
-  
-  th, td {
+
+  th,
+  td {
     padding: 8px;
   }
 }
@@ -247,24 +274,24 @@ th {
   body {
     font-size: 14px;
   }
-  
+
   .container {
     padding: 15px 10px;
   }
-  
+
   .header {
     padding: 12px;
   }
-  
+
   .header h1 {
     font-size: 1.2em;
   }
-  
+
   h2 {
     font-size: 1.1em;
     margin: 20px 0 10px 0;
   }
-  
+
   .contact-info {
     padding: 15px;
   }
@@ -279,20 +306,20 @@ th {
     --accent-color: #2a2a2a;
     --border-color: #333;
   }
-  
+
   .editable {
     background-color: #2a2a2a;
     border-color: #555;
   }
-  
+
   .contact-info {
     background-color: #2a2a2a;
   }
-  
+
   .footer {
     background-color: #2a2a2a;
   }
-  
+
   .important {
     background-color: #2a1a1a;
   }
@@ -305,15 +332,15 @@ th {
     background: none;
     border: none;
   }
-  
+
   .back-button {
     display: none;
   }
-  
+
   .editable::before {
     display: none;
   }
-  
+
   .editable {
     border: none;
     background: none;
@@ -336,4 +363,4 @@ th {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
-} 
+}

@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- 웹뷰 최적화 메타태그 -->
   <meta name="format-detection" content="telephone=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <title>이용약관 - MaroStory</title>
   <meta name="description" content="MaroStory 서비스 이용약관">
   <meta name="robots" content="noindex, nofollow">
-  
+
   <!-- CSS 파일 연결 -->
   <link rel="stylesheet" href="legal-pages.css">
 </head>
+
 <body>
   <!-- 헤더 -->
   <header class="header">
 
     <h1>이용약관</h1>
+    <div class="lang-selector" style="text-align: center; margin-top: 10px; font-size: 0.8em;">
+      <a href="terms.html" style="font-weight: bold; color: var(--primary-color);">KO</a> |
+      <a href="terms_en.html" style="color: #666;">EN</a> |
+      <a href="terms_ja.html" style="color: #666;">JA</a>
+    </div>
+
   </header>
 
   <!-- 메인 콘텐츠 -->
   <main class="container">
-    
+
     <!-- 편집 가능한 본문 영역 -->
     <div>
       <h2>제1조 (목적)</h2>
@@ -43,7 +51,8 @@
 
       <h2>제3조 (약관의 효력 및 변경)</h2>
       <p>① 이 약관은 서비스 화면에 게시하거나 기타의 방법으로 이용자에게 공지함으로써 효력을 발생합니다.</p>
-      <p>② 회사는 필요하다고 인정되는 경우 이 약관을 변경할 수 있으며, 약관을 변경할 때에는 적용일자 및 변경사유를 명시하여 현행약관과 함께 서비스의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다.</p>
+      <p>② 회사는 필요하다고 인정되는 경우 이 약관을 변경할 수 있으며, 약관을 변경할 때에는 적용일자 및 변경사유를 명시하여 현행약관과 함께 서비스의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지
+        공지합니다.</p>
 
       <h2>제4조 (서비스의 제공 및 변경)</h2>
       <p>① 회사는 다음과 같은 업무를 수행합니다:</p>
@@ -115,6 +124,13 @@
   <!-- 푸터 -->
   <footer class="footer">
     <p>ⓒ 2025 MaroStory. All Rights Reserved.</p>
+    <div class="footer-business">
+      <span>대표 : 민순오</span>
+      <span>사업자등록번호 : 791-76-00469</span>
+      <span>통신판매업 : 준비중</span>
+      <br>
+      <span>주소 : 우) 16978 경기도 용인시 기흥구 강남동로 6, 501-444호 (구갈동, 그랜드프라자)</span>
+    </div>
   </footer>
 
   <!-- JavaScript -->
@@ -150,7 +166,7 @@
       ticking = false;
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (!ticking) {
         requestAnimationFrame(updateScrollPosition);
         ticking = true;
@@ -175,7 +191,7 @@
 
     // 개발 모드에서 더블클릭으로 편집 모드 토글
     if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-      document.addEventListener('dblclick', function(e) {
+      document.addEventListener('dblclick', function (e) {
         if (e.target.closest('.editable')) {
           e.preventDefault();
           toggleEditMode();
@@ -184,13 +200,14 @@
     }
 
     // 페이지 로드 완료 알림 (웹뷰에서 사용)
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.pageLoaded) {
-        window.webkit.messageHandlers.pageLoaded.postMessage({page: 'terms'});
+        window.webkit.messageHandlers.pageLoaded.postMessage({ page: 'terms' });
       } else if (window.Android && window.Android.pageLoaded) {
         window.Android.pageLoaded('terms');
       }
     });
   </script>
 </body>
-</html> 
+
+</html>
