@@ -34,10 +34,11 @@
     <main class="container">
 
         <div>
-            <p>MaroStory (hereinafter referred to as the "Company") values the personal information of the data subjects
-                who use all services provided by the Company (hereinafter referred to as the "Service") and complies
-                with relevant laws and regulations. This policy explains how users' personal information is collected,
-                used, and protected.</p>
+            <p>MaroStory (hereinafter referred to as the "Company") values the personal information of people who use
+                its services (hereinafter referred to as the "Services") and complies with applicable laws. This policy
+                explains how personal information is collected, used, and protected. Processing items, storage locations,
+                and external providers may differ by Service; a Service-specific notice or in-Service notice takes
+                precedence where it addresses the same subject.</p>
 
             <h2>Article 1 (Personal Information Items Collected)</h2>
             <p>The Company may collect the following personal information to provide services.</p>
@@ -78,7 +79,7 @@
             </ul>
 
             <h2>Article 3 (Purpose of Using Personal Information)</h2>
-            <p>The Company uses the collected personal information for the following purposes:</p>
+            <p>The Company uses collected personal information only to the extent necessary for each Service and for the purposes below. The examples below do not apply to every Service; a Service-specific notice applies where available.</p>
 
             <table>
                 <thead>
@@ -144,20 +145,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Firebase (Google)</td>
-                        <td>Authentication, push notifications, analysis, cloud storage</td>
-                    </tr>
-                    <tr>
-                        <td>Supabase</td>
-                        <td>User DB storage and authentication processing</td>
+                        <td>Google Firebase</td>
+                        <td>Optional account authentication, cloud storage, push notifications, and server functions by Service</td>
                     </tr>
                     <tr>
                         <td>Google AdMob</td>
-                        <td>Ad transmission and rewarded ad operation</td>
+                        <td>Ad delivery for ad-supported Services, consent-state handling, measurement, and fraud prevention</td>
                     </tr>
                     <tr>
-                        <td>OpenAI / Gemini</td>
-                        <td>Provision of AI-based interpretation functions (anonymized when transmitting text)</td>
+                        <td>Google / Apple</td>
+                        <td>User-selected social sign-in and external feature integrations</td>
+                    </tr>
+                    <tr>
+                        <td>Other external providers</td>
+                        <td>Only where the applicable Service actually uses them, as described in its Service-specific notice</td>
                     </tr>
                 </tbody>
             </table>
@@ -185,21 +186,56 @@
             <p>The Company does not intentionally collect personal information of children under 14, and takes immediate
                 deletion measures upon confirmation.</p>
 
-            <h2>Article 11 (Chief Privacy Officer)</h2>
+            <h2>Article 11 (SaiNote Service-Specific Notice)</h2>
+            <p>This Article applies to the SaiNote app. SaiNote can be used without an account, and guest use and optional account use have different processing scopes.</p>
+
+            <h3>1. Guest Use</h3>
+            <p>During guest use, people, occasions, congratulatory/condolence and financial records, notes, and personal insights calculated by the app are kept in storage on the user's device. They are not automatically sent to Company servers. Even after an account is connected, they are transferred to account storage only when the user expressly chooses backup, merge, or replacement of account records.</p>
+
+            <h3>2. Optional Account and Cloud Features</h3>
+            <p>If the user connects an account by email, Google, or Apple, we process account identifiers, email address, authentication-provider information, display name, and an optional profile photo. People, occasions, transactions, notes, and personal insights that the user backs up or creates in the account, as well as feedback and optional attachments, may be stored and processed through Firebase services. Passwords are handled by Firebase Authentication; the Company does not retain plaintext passwords.</p>
+
+            <h3>3. Optional Features and Permissions</h3>
+            <p>Contacts, device calendar, Google Calendar, and ICS-file import are used only when the user selects the feature and grants the relevant permission. Chosen information is shown as a draft for creating a record, and only information the user confirms is retained as a record. Profile photos and feedback attachments are processed only when selected by the user. Denying a permission limits that optional feature only, not core features.</p>
+
+            <h3>4. Notifications and Advertising</h3>
+            <p>When a user connects notifications, we process a device-specific push token, platform, and refresh time to send notifications and manage the token. SaiNote advertising may be provided through Google AdMob in line with consent status and device settings. For ad delivery, measurement, and fraud prevention, Google or its partners may process IP address, device and app information, advertising or app identifiers, and ad-interaction information. The scope of advertising-identifier processing may vary by operating system and ad settings.</p>
+
+            <h3>5. Retention, Deletion, and International Processing</h3>
+            <p>Guest records stored on a device are deleted when the user deletes individual records or chooses to clear local records as part of backup, merge, or account-record replacement. Information stored in an account is deleted upon the user's deletion or account-deletion request, except where retention is required by law, in which case it is retained separately for the required period. Device and server data are separate storage areas and must be deleted separately. When features use overseas providers such as Firebase or AdMob, personal information may be transferred to or processed on servers or by subprocessors outside the user's country. Details that must be disclosed by law, including the recipient, items, country, and retention period, will be provided through a separate in-Service notice or consent process.</p>
+
+            <h2>Article 12 (Leftty P0 Service-Specific Notice)</h2>
+            <p>This Article applies to the currently released Leftty P0 app. Leftty P0 is a local-only app that keeps user-entered pass, quantity, credit, period, and subscription-schedule records only in app-specific storage on the current device.</p>
+
+            <h3>1. On-Device Processing Items and Purpose</h3>
+            <p>Leftty P0 processes on the device a managed item's name, type, note, and creation and modification times; remaining balance, quantity, credits, unit, currency, and optional purchase amount; expiration date, period end time, next billing date, and billing cycle; and change history for creation, use, recharge, adjustment, period change, subscription-payment confirmation, and cancellation. This is used only to display remaining values and schedules and to provide a change history the user can review.</p>
+
+            <h3>2. Local Notifications</h3>
+            <p>If the user permits notifications, Leftty P0 may schedule local notifications through the device operating system for expiration dates or next billing dates. A notification may show an item name and schedule information, which may be visible to someone viewing the device, including on a lock screen. Denying notification permission does not prevent the user from adding, editing, or deleting records, and permission can be changed in device settings.</p>
+
+            <h3>3. Company-Server Transfers and External Services</h3>
+            <p>Leftty P0 does not offer sign-up, sign-in, or account linkage, and does not send these records to Company servers or link them to a Company account. The current Leftty P0 has no Firebase, remote analytics tool, advertising SDK, in-app purchase SDK, remote push, or merchant, bank, card, or email integration. Accordingly, the Company does not remotely retain, view, or restore Leftty P0 user records, or transmit them for third-party provision, processing delegation, or international transfer.</p>
+
+            <h3>4. Deletion and Retention</h3>
+            <p>Users can edit or delete their own items in the app. Deleting an item also deletes its change history and associated local notification schedules from the device. Depletion, expiration, subscription cancellation, or moving an item to or hiding it in the archive is not deletion, so the record remains on the device. Because data exists only on the device, it may not be recoverable after app deletion, clearing app storage, device replacement, or reset. Retention and restoration of operating-system or user-configured device backups are governed by that operating system's policies.</p>
+
+            <h3>5. Device Settings</h3>
+            <p>Leftty P0 reads device language and regional settings locally only to display the interface language and currency. It does not automatically collect or transmit email address, phone number, password, account identifier, advertising identifier, contacts, photos, location, calendar, camera, microphone, payment method, or actual payment details.</p>
+
+            <h2>Article 13 (Chief Privacy Officer)</h2>
             <p>The Company designates a Chief Privacy Officer as follows to take overall responsibility for tasks
                 related to personal information processing and to handle complaints and damage relief of data subjects
                 related to personal information processing.</p>
 
             <div class="important">
                 <p><strong>Chief Privacy Officer</strong></p>
-                <p>Officer: [Name of person in charge or "Representative"]</p>
+                <p>Officer: Soonoh Min</p>
                 <p>Email: snow@marostory.com</p>
                 <p>Inquiries can be submitted through customer support within each service or via the email above.</p>
             </div>
 
-            <h2>Article 12 (Notification of Change)</h2>
-            <p>This policy may be revised after prior notice according to changes in laws, policies, or service
-                contents, and will be guided through announcements or pop-ups within the service.</p>
+            <h2>Article 14 (Notification of Change)</h2>
+            <p>This policy may be revised in response to changes in laws, policies, or Services. Material changes will be announced before they take effect through an in-Service notice, pop-up, or this website, and prior versions will be kept available upon request.</p>
         </div>
 
         <!-- Contact Info -->
@@ -217,24 +253,23 @@
             <p>If you need to report personal information infringement, you can report it to the following
                 organizations:</p>
             <ul>
-                <li><strong>Personal Information Protection Commission:</strong> privacy.go.kr / 182</li>
-                <li><strong>Personal Information Infringement Report Center:</strong> privacy.go.kr / 182</li>
-                <li><strong>Supreme Prosecutors' Office Cybercrime Investigation Unit:</strong> www.spo.go.kr /
-                    02-3480-3571</li>
-                <li><strong>National Police Agency Cyber Terror Response Center:</strong> www.netan.go.kr / 182</li>
+                <li><strong>Personal Information Dispute Mediation Committee:</strong> www.kopico.go.kr / 1833-6972</li>
+                <li><strong>Personal Information Infringement Report Center:</strong> privacy.kisa.or.kr / 118</li>
+                <li><strong>Supreme Prosecutors' Office Cyber Investigation Division:</strong> www.spo.go.kr / 1301</li>
+                <li><strong>National Police Agency Cybercrime Reporting System:</strong> ecrm.police.go.kr / 182</li>
             </ul>
         </div>
 
         <!-- Effective Date -->
         <div class="date-info">
-            <p><strong>Announcement Date:</strong> June 3, 2025</p>
-            <p><strong>Effective Date:</strong> June 10, 2025</p>
+            <p><strong>Announcement Date:</strong> August 27, 2026</p>
+            <p><strong>Effective Date:</strong> August 27, 2026</p>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>ⓒ 2025 MaroStory. All Rights Reserved.</p>
+        <p>ⓒ 2026 MaroStory. All Rights Reserved.</p>
     </footer>
 
     <!-- JavaScript -->
