@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebasesrc",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/privacy.html",
+        "destination": "https://account.marostory.com/privacy.html",
+        "type": 301
+      },
+      {
+        "source": "/privacy_en.html",
+        "destination": "https://account.marostory.com/privacy_en.html",
+        "type": 301
+      },
+      {
+        "source": "/privacy_ja.html",
+        "destination": "https://account.marostory.com/privacy_ja.html",
+        "type": 301
+      }
+    ]
+  }
+}
