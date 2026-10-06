@@ -39,33 +39,42 @@ function createFooter(currentLang = 'ko') {
             terms: { href: 'terms.html', text: '이용약관' },
             privacy: { href: 'privacy.html', text: '개인정보처리방침' },
             businessInfo: `
+        <span>상호 : 마로스토리</span>
         <span>대표 : 민순오</span>
         <span>사업자등록번호 : 791-76-00469</span>
         <span>통신판매업 신고번호 : 제2026-용인기흥-00080호</span>
+        <span><a href="https://www.ftc.go.kr/www/selectBizCommList.do?key=254" target="_blank" rel="noopener noreferrer">사업자정보 확인</a></span>
         <br>
         <span>주소 : 우) 16978 경기도 용인시 기흥구 강남동로 6, 501-444호 (구갈동, 그랜드프라자)</span>
+        <span>이메일 : <a href="mailto:help@marostory.com">help@marostory.com</a></span>
       `
         },
         en: {
             terms: { href: 'terms_en.html', text: 'Terms of Service' },
             privacy: { href: 'privacy_en.html', text: 'Privacy Policy' },
             businessInfo: `
+        <span>Business Name: MaroStory</span>
         <span>Representative: Soon-O Min</span>
         <span>Business Registration: 791-76-00469</span>
         <span>Mail-Order Business Registration No.: 제2026-용인기흥-00080호</span>
+        <span><a href="https://www.ftc.go.kr/www/selectBizCommList.do?key=254" target="_blank" rel="noopener noreferrer">Verify Business Information</a></span>
         <br>
         <span>Address: 501-444, 6 Gangnamdong-ro, Giheung-gu, Yongin-si, Gyeonggi-do, 16978, South Korea</span>
+        <span>Email: <a href="mailto:help@marostory.com">help@marostory.com</a></span>
       `
         },
         ja: {
             terms: { href: 'terms_ja.html', text: '利用規約' },
             privacy: { href: 'privacy_ja.html', text: 'プライバシーポリシー' },
             businessInfo: `
+        <span>商号：마로스토리 (MaroStory)</span>
         <span>代表者：ミン・スンオ</span>
         <span>事業者登録番号：791-76-00469</span>
         <span>通信販売業届出番号：제2026-용인기흥-00080호</span>
+        <span><a href="https://www.ftc.go.kr/www/selectBizCommList.do?key=254" target="_blank" rel="noopener noreferrer">事業者情報を確認</a></span>
         <br>
         <span>住所：〒16978 京畿道龍仁市器興区江南洞路6、501-444号（九葛洞、グランドプラザ）</span>
+        <span>メール：<a href="mailto:help@marostory.com">help@marostory.com</a></span>
       `
         }
     };

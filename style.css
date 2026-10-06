@@ -443,6 +443,15 @@ footer {
   content: "";
 }
 
+.footer-business a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer-business a:hover {
+  color: var(--color-primary);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
 

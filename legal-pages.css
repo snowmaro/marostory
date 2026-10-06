@@ -210,6 +210,15 @@ th {
   content: "";
 }
 
+.footer-business a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.footer-business a:hover {
+  color: var(--primary-color);
+}
+
 /* 편집 가능한 영역 표시 */
 .editable {
   border: 2px dashed #ddd;
