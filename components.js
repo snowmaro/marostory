@@ -41,7 +41,7 @@ function createFooter(currentLang = 'ko') {
             businessInfo: `
         <span>대표 : 민순오</span>
         <span>사업자등록번호 : 791-76-00469</span>
-        <span>통신판매업 : 준비중</span>
+        <span>통신판매업 신고번호 : 제2026-용인기흥-00080호</span>
         <br>
         <span>주소 : 우) 16978 경기도 용인시 기흥구 강남동로 6, 501-444호 (구갈동, 그랜드프라자)</span>
       `
@@ -52,7 +52,7 @@ function createFooter(currentLang = 'ko') {
             businessInfo: `
         <span>Representative: Soon-O Min</span>
         <span>Business Registration: 791-76-00469</span>
-        <span>Mail Order Business: In Preparation</span>
+        <span>Mail-Order Business Registration No.: 제2026-용인기흥-00080호</span>
         <br>
         <span>Address: 501-444, 6 Gangnamdong-ro, Giheung-gu, Yongin-si, Gyeonggi-do, 16978, South Korea</span>
       `
@@ -63,7 +63,7 @@ function createFooter(currentLang = 'ko') {
             businessInfo: `
         <span>代表者：ミン・スンオ</span>
         <span>事業者登録番号：791-76-00469</span>
-        <span>通信販売業：準備中</span>
+        <span>通信販売業届出番号：제2026-용인기흥-00080호</span>
         <br>
         <span>住所：〒16978 京畿道龍仁市器興区江南洞路6、501-444号（九葛洞、グランドプラザ）</span>
       `
