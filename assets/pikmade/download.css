@@ -1,0 +1,35 @@
+@charset "UTF-8";
+:root { color-scheme: light; font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; color: #222722; background: #faf9f6; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100%, 620px); margin: auto; padding: 40px 24px 24px; text-align: center; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid #c8462a; outline-offset: 6px; }
+.brand { display: inline-block; width: 145px; }
+.brand img { display: block; width: 100%; height: auto; }
+.art { display: flex; justify-content: center; align-items: center; height: 205px; margin: 35px 0 25px; }
+.art img { width: 29%; max-width: 148px; height: auto; border: 7px solid white; box-shadow: 0 12px 30px #22272215; }
+.art img:first-child { transform: rotate(-12deg) translate(12px, 12px); }
+.art img:nth-child(2) { width: 33%; max-width: 168px; z-index: 1; transform: translateY(-12px); }
+.art img:last-child { transform: rotate(12deg) translate(-12px, 12px); }
+.eyebrow { font-size: 9px; font-weight: 650; letter-spacing: .18em; }
+h1 { font-size: clamp(32px, 6vw, 46px); letter-spacing: -.065em; line-height: 1.2; margin: 20px 0; word-break: keep-all; }
+h1 em { font-style: normal; color: #c8462a; }
+#status { font-size: 14px; line-height: 1.7; min-height: 24px; margin: 24px 0; word-break: keep-all; }
+.stores { display: flex; justify-content: center; gap: 12px; }
+.stores a { background: #222722; color: white; padding: 14px 22px; border-radius: 4px; text-align: left; flex: 1; max-width: 218px; }
+.stores a:hover { background: #c8462a; }
+.stores small { font-size: 10px; opacity: .78; }
+.stores span { display: flex; justify-content: space-between; gap: 15px; font-size: 17px; font-weight: 650; margin-top: 4px; }
+.stores b { font-weight: 400; }
+.hint { color: #6c7066; font-size: 11px; line-height: 1.9; margin: 22px 0; word-break: keep-all; }
+.intro { display: inline-block; padding: 14px; font-size: 13px; border-bottom: 1px solid #dedfd6; }
+.intro span { margin-left: 12px; }
+footer { margin-top: 40px; color: #6c7066; font-size: 10px; letter-spacing: .04em; }
+@media (max-width: 380px) {
+  main { padding: 28px 20px 24px; }
+  .art { height: 160px; margin-block: 28px 18px; }
+  .stores { gap: 8px; }
+  .stores a { padding: 13px; }
+  .stores span { font-size: 15px; gap: 8px; }
+}

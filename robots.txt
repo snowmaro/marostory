@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marostory.com/sitemap.xml

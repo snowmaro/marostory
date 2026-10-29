@@ -10,7 +10,342 @@
       "**/.*/**",
       "**/node_modules/**"
     ],
+    "rewrites": [
+      {
+        "source": "/project/pikmade/download",
+        "destination": "/project/pikmade-download.html"
+      },
+      {
+        "source": "/project/pikmade",
+        "destination": "/project/pikmade.html"
+      },
+      {
+        "source": "/project/pikmade/en",
+        "destination": "/project/pikmade-en.html"
+      },
+      {
+        "source": "/en",
+        "destination": "/index_en.html"
+      },
+      {
+        "source": "/project/sainote",
+        "destination": "/project/sainote.html"
+      },
+      {
+        "source": "/project/sainote/en",
+        "destination": "/project/sainote-en.html"
+      },
+      {
+        "source": "/project/leftty",
+        "destination": "/project/leftty.html"
+      },
+      {
+        "source": "/project/leftty/en",
+        "destination": "/project/leftty-en.html"
+      },
+      {
+        "source": "/project/routiney",
+        "destination": "/project/routiney.html"
+      },
+      {
+        "source": "/project/routiney/en",
+        "destination": "/project/routiney-en.html"
+      },
+      {
+        "source": "/project/hairory",
+        "destination": "/project/hairory.html"
+      },
+      {
+        "source": "/project/hairory/en",
+        "destination": "/project/hairory-en.html"
+      },
+      {
+        "source": "/project/binglerun",
+        "destination": "/project/binglerun.html"
+      },
+      {
+        "source": "/project/binglerun/en",
+        "destination": "/project/binglerun-en.html"
+      },
+      {
+        "source": "/project/pipelody",
+        "destination": "/project/pipelody.html"
+      },
+      {
+        "source": "/project/pipelody/en",
+        "destination": "/project/pipelody-en.html"
+      },
+      {
+        "source": "/project/ticktownlifts",
+        "destination": "/project/ticktownlifts.html"
+      },
+      {
+        "source": "/project/ticktownlifts/en",
+        "destination": "/project/ticktownlifts-en.html"
+      },
+      {
+        "source": "/project/archery",
+        "destination": "/project/archery.html"
+      },
+      {
+        "source": "/project/archery/en",
+        "destination": "/project/archery-en.html"
+      },
+      {
+        "source": "/project/postcardmetro",
+        "destination": "/project/postcardmetro.html"
+      },
+      {
+        "source": "/project/postcardmetro/en",
+        "destination": "/project/postcardmetro-en.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/assets/pikmade/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/assets/site/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      }
+    ],
     "redirects": [
+      {
+        "source": "/project/pikmade-download.html",
+        "destination": "/project/pikmade/download",
+        "type": 301
+      },
+      {
+        "source": "/project/pikmade/download/",
+        "destination": "/project/pikmade/download",
+        "type": 301
+      },
+      {
+        "source": "/project/pikmade.html",
+        "destination": "/project/pikmade",
+        "type": 301
+      },
+      {
+        "source": "/project/pikmade-en.html",
+        "destination": "/project/pikmade/en",
+        "type": 301
+      },
+      {
+        "source": "/project/pikmade/",
+        "destination": "/project/pikmade",
+        "type": 301
+      },
+      {
+        "source": "/project/pikmade/en/",
+        "destination": "/project/pikmade/en",
+        "type": 301
+      },
+      {
+        "source": "/index_en.html",
+        "destination": "/en",
+        "type": 301
+      },
+      {
+        "source": "/en/",
+        "destination": "/en",
+        "type": 301
+      },
+      {
+        "source": "/index_ja.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/project/sainote.html",
+        "destination": "/project/sainote",
+        "type": 301
+      },
+      {
+        "source": "/project/sainote/",
+        "destination": "/project/sainote",
+        "type": 301
+      },
+      {
+        "source": "/project/sainote-en.html",
+        "destination": "/project/sainote/en",
+        "type": 301
+      },
+      {
+        "source": "/project/sainote/en/",
+        "destination": "/project/sainote/en",
+        "type": 301
+      },
+      {
+        "source": "/project/leftty.html",
+        "destination": "/project/leftty",
+        "type": 301
+      },
+      {
+        "source": "/project/leftty/",
+        "destination": "/project/leftty",
+        "type": 301
+      },
+      {
+        "source": "/project/leftty-en.html",
+        "destination": "/project/leftty/en",
+        "type": 301
+      },
+      {
+        "source": "/project/leftty/en/",
+        "destination": "/project/leftty/en",
+        "type": 301
+      },
+      {
+        "source": "/project/routiney.html",
+        "destination": "/project/routiney",
+        "type": 301
+      },
+      {
+        "source": "/project/routiney/",
+        "destination": "/project/routiney",
+        "type": 301
+      },
+      {
+        "source": "/project/routiney-en.html",
+        "destination": "/project/routiney/en",
+        "type": 301
+      },
+      {
+        "source": "/project/routiney/en/",
+        "destination": "/project/routiney/en",
+        "type": 301
+      },
+      {
+        "source": "/project/hairory.html",
+        "destination": "/project/hairory",
+        "type": 301
+      },
+      {
+        "source": "/project/hairory/",
+        "destination": "/project/hairory",
+        "type": 301
+      },
+      {
+        "source": "/project/hairory-en.html",
+        "destination": "/project/hairory/en",
+        "type": 301
+      },
+      {
+        "source": "/project/hairory/en/",
+        "destination": "/project/hairory/en",
+        "type": 301
+      },
+      {
+        "source": "/project/binglerun.html",
+        "destination": "/project/binglerun",
+        "type": 301
+      },
+      {
+        "source": "/project/binglerun/",
+        "destination": "/project/binglerun",
+        "type": 301
+      },
+      {
+        "source": "/project/binglerun-en.html",
+        "destination": "/project/binglerun/en",
+        "type": 301
+      },
+      {
+        "source": "/project/binglerun/en/",
+        "destination": "/project/binglerun/en",
+        "type": 301
+      },
+      {
+        "source": "/project/pipelody.html",
+        "destination": "/project/pipelody",
+        "type": 301
+      },
+      {
+        "source": "/project/pipelody/",
+        "destination": "/project/pipelody",
+        "type": 301
+      },
+      {
+        "source": "/project/pipelody-en.html",
+        "destination": "/project/pipelody/en",
+        "type": 301
+      },
+      {
+        "source": "/project/pipelody/en/",
+        "destination": "/project/pipelody/en",
+        "type": 301
+      },
+      {
+        "source": "/project/ticktownlifts.html",
+        "destination": "/project/ticktownlifts",
+        "type": 301
+      },
+      {
+        "source": "/project/ticktownlifts/",
+        "destination": "/project/ticktownlifts",
+        "type": 301
+      },
+      {
+        "source": "/project/ticktownlifts-en.html",
+        "destination": "/project/ticktownlifts/en",
+        "type": 301
+      },
+      {
+        "source": "/project/ticktownlifts/en/",
+        "destination": "/project/ticktownlifts/en",
+        "type": 301
+      },
+      {
+        "source": "/project/archery.html",
+        "destination": "/project/archery",
+        "type": 301
+      },
+      {
+        "source": "/project/archery/",
+        "destination": "/project/archery",
+        "type": 301
+      },
+      {
+        "source": "/project/archery-en.html",
+        "destination": "/project/archery/en",
+        "type": 301
+      },
+      {
+        "source": "/project/archery/en/",
+        "destination": "/project/archery/en",
+        "type": 301
+      },
+      {
+        "source": "/project/postcardmetro.html",
+        "destination": "/project/postcardmetro",
+        "type": 301
+      },
+      {
+        "source": "/project/postcardmetro/",
+        "destination": "/project/postcardmetro",
+        "type": 301
+      },
+      {
+        "source": "/project/postcardmetro-en.html",
+        "destination": "/project/postcardmetro/en",
+        "type": 301
+      },
+      {
+        "source": "/project/postcardmetro/en/",
+        "destination": "/project/postcardmetro/en",
+        "type": 301
+      },
       {
         "source": "/privacy.html",
         "destination": "https://account.marostory.com/privacy.html",
