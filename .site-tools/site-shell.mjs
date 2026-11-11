@@ -1,8 +1,8 @@
 // 모든 페이지가 함께 쓰는 공통 헤더(2depth 메뉴)·푸터·다른 제품 섹션. 스타일은 assets/site/shell.css.
 // 픽메이드 페이지(build-pikmade.mjs)도 이 모듈을 쓰므로 클래스는 ms- 접두사로 분리한다.
-import { EMAIL, apps, games, copy, productPath } from './site-content.mjs';
+import { EMAIL, services, apps, games, copy, productPath } from './site-content.mjs';
 
-export const SHELL_V = '20261029e';
+export const SHELL_V = '20261103a';
 export const FONT_CSS = 'https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css';
 const IMG = '/assets/site/img/';
 // 로고(브랜드 키트 ~/dev/snow_design/marostory-brand에서 복사). 기본 표기는 코발트 마침표(color).
@@ -22,7 +22,10 @@ const chevron = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d
 const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 /** <head>에 넣을 공통 리소스 */
-export const shellHead = () => `<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+export const ADSENSE_CLIENT = 'ca-pub-9169449264322785'; // Google AdSense (ads.txt와 같은 게시자 ID)
+export const shellHead = () => `<meta name="google-adsense-account" content="${ADSENSE_CLIENT}">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="${FONT_CSS}">
 <link rel="stylesheet" href="/assets/site/shell.css?v=${SHELL_V}">
 <script src="/assets/site/shell.js?v=${SHELL_V}" defer></script>`;
@@ -55,6 +58,7 @@ export function shellHeader(lang, alt, { current, onHome = false, autoHide = fal
     <a class="ms-wordmark" href="${c.home}" aria-label="${c.homeLabel}">${logo('lockup', 26)}</a>
     <button class="ms-menu-toggle" type="button" aria-expanded="false" aria-controls="ms-nav" aria-label="${c.menu}"><span></span><span></span></button>
     <nav class="ms-nav" id="ms-nav" aria-label="${c.navLabel}">
+    ${group(lang, 'services', services, current)}
     ${group(lang, 'apps', apps, current)}
     ${group(lang, 'games', games, current)}
       <a class="ms-nav-link" href="${h}#studio">${c.nav.studio}</a>
@@ -67,12 +71,13 @@ export function shellHeader(lang, alt, { current, onHome = false, autoHide = fal
 
 /** 상세 페이지 하단: 같은 종류의 다른 제품 */
 export function shellMore(lang, current) {
-  const isGame = games.some((g) => g.slug === current);
-  const list = (isGame ? games : apps).filter((p) => p.slug !== current);
+  const kind = games.some((g) => g.slug === current) ? 'games' : services.some((s) => s.slug === current) ? 'services' : 'apps';
+  // 서비스 페이지 아래에는 앱을 보여 준다(서비스가 하나뿐이라)
+  const list = (kind === 'games' ? games : apps).filter((p) => p.slug !== current);
   const c = copy[lang];
   return `<section class="ms-more">
   <div class="ms-wrap">
-    <h2 class="ms-more-title">${isGame ? c.more.games : c.more.apps}</h2>
+    <h2 class="ms-more-title">${c.more[kind]}</h2>
     <ul class="ms-more-list">
       ${list.map((p) => `<li><a href="${productPath(p, lang)}"><img src="${IMG}icon-${p.slug}.webp" alt="" width="56" height="56" loading="lazy"><span><strong>${esc(p[lang].name)}</strong><small>${esc(p[lang].short)}</small></span>${arrow}</a></li>`).join('\n      ')}
     </ul>

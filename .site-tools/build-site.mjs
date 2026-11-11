@@ -1,11 +1,11 @@
 // 홈(ko·en)과 앱·게임 상세 페이지를 정적 HTML로 만든다. 픽메이드 상세는 build-pikmade.mjs가 따로 만든다.
 // 사용: node .site-tools/build-site.mjs
 import { writeFile } from 'node:fs/promises';
-import { SITE, EMAIL, apps, games, copy, productPath } from './site-content.mjs';
+import { SITE, EMAIL, services, apps, games, copy, productPath } from './site-content.mjs';
 import { shellHead, shellHeader, shellMore, shellFooter, iconLinks } from './site-shell.mjs';
 
 const root = new URL('../', import.meta.url);
-const V = '20261029b';
+const V = '20261103a';
 const IMG = '/assets/site/img/';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -15,18 +15,23 @@ const arrow = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="
 const out = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ext = 'target="_blank" rel="noopener noreferrer"';
 const isGame = (p) => games.includes(p);
+const isService = (p) => services.includes(p);
 const shotSrc = (name) => (name.startsWith('/') ? name : `${IMG}${name}.webp`);
 const shotsFor = (p, lang) => (lang === 'en' && p.shotsEn) || p.shots;
 const local = (v, lang) => (v && typeof v === 'object' && !Array.isArray(v) ? v[lang] : v);
 const heroOf = (p, lang) => (local(p.heroShots, lang) ?? shotsFor(p, lang)).slice(0, 3);
 const icon = (slug, alt, size = 64) => `<img class="app-icon" src="${IMG}icon-${slug}.webp" alt="${esc(alt)}" width="${size}" height="${size}" loading="lazy">`;
-const phone = (name, alt = '', extra = '') => `<img class="phone" src="${shotSrc(name)}" alt="${esc(alt)}" width="600" height="1300" ${extra}>`;
+const isWide = (name) => name.includes('-wide-'); // PC 화면 스크린샷(웹 서비스)
+const phone = (name, alt = '', extra = '') => (isWide(name)
+  ? `<img class="screen" src="${shotSrc(name)}" alt="${esc(alt)}" width="1200" height="760" ${extra}>`
+  : `<img class="phone" src="${shotSrc(name)}" alt="${esc(alt)}" width="600" height="1300" ${extra}>`);
 
-function storeButtons(lang, { ios, android }) {
+function storeButtons(lang, { ios, android, web }) {
   const c = copy[lang].store;
+  if (web) return `<div class="stores"><a class="store store-web" href="${web}" ${ext}><span class="store-os">Web</span>${c.web}${out}</a></div>`;
   return `<div class="stores">${ios ? `<a class="store" href="${ios}" ${ext}><span class="store-os">iOS</span>${c.ios}${out}</a>` : ''}${android ? `<a class="store" href="${android}" ${ext}><span class="store-os">Android</span>${c.android}${out}</a>` : ''}</div>`;
 }
-const storesOf = (p) => (isGame(p) ? { android: p.android } : p.stores);
+const storesOf = (p) => (isGame(p) ? { android: p.android } : isService(p) ? { web: p.web } : p.stores);
 
 function head(lang, { title, description, path, alt, image, schema }) {
   const url = SITE + path;
@@ -81,7 +86,7 @@ function home(lang) {
           <div class="app-id">${icon(a.slug, t.name, 56)}<div><h3>${esc(t.name)}</h3><p class="app-sub">${esc(t.short)}</p></div></div>
           <p class="app-tagline">${br(t.tagline)}</p>
           <p class="app-summary">${esc(t.summary)}</p>
-          <div class="app-actions"><a class="more" href="${productPath(a, lang)}">${c.detail.more}${arrow}</a>${storeButtons(lang, a.stores)}</div>
+          <div class="app-actions"><a class="more" href="${productPath(a, lang)}">${c.detail.more}${arrow}</a>${storeButtons(lang, storesOf(a))}</div>
         </div>
         <a class="app-card-stage" href="${productPath(a, lang)}" tabindex="-1" aria-hidden="true">${phone(a.card?.[lang] ?? shotsFor(a, lang)[0], '', 'loading="lazy"')}</a>
       </article>`;
@@ -112,8 +117,15 @@ ${shellHeader(lang, alt, { onHome: true })}
         <div class="hero-cta"><a class="btn btn-dark" href="#apps">${c.hero.apps}</a><a class="btn btn-line" href="#games">${c.hero.games}</a></div>
       </div>
       <ul class="icon-wall">
-        ${[...apps, ...games].map((p, i) => `<li style="--i:${i};--brand:${p.color}"><a href="${productPath(p, lang)}" aria-label="${esc(p[lang].name)}"><img src="${IMG}icon-${p.slug}.webp" alt="" width="128" height="128"></a></li>`).join('\n        ')}
+        ${[...services, ...apps, ...games].map((p, i) => `<li style="--i:${i};--brand:${p.color}"><a href="${productPath(p, lang)}" aria-label="${esc(p[lang].name)}"><img src="${IMG}icon-${p.slug}.webp" alt="" width="128" height="128"></a></li>`).join('\n        ')}
       </ul>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head"><p class="eyebrow">${c.services.eyebrow}</p><h2>${br(c.services.title)}</h2><p class="section-lead">${esc(c.services.lead)}</p></div>
+      ${services.map((s) => `<div class="app-feature">${appCard(s)}</div>`).join('\n      ')}
     </div>
   </section>
 
@@ -162,11 +174,13 @@ ${end(lang)}`;
 
 /* ---------- Product page (apps & games) ---------- */
 function product(p, lang) {
-  const c = copy[lang], t = p[lang], d = c.detail, game = isGame(p);
+  const c = copy[lang], t = p[lang], d = c.detail, game = isGame(p), service = isService(p);
   const alt = { ko: productPath(p, 'ko'), en: productPath(p, 'en') };
   const shots = shotsFor(p, lang);
   const title = `${t.name}${lang === 'ko' ? ` ${p.en.name}` : ''} — ${flat(t.tagline)} | MaroStory`;
-  const schema = game
+  const schema = service
+    ? { '@context': 'https://schema.org', '@type': 'WebApplication', name: t.name, alternateName: p.en.name, applicationCategory: 'MultimediaApplication', operatingSystem: 'Web', browserRequirements: 'Requires a modern web browser', description: t.summary, url: SITE + alt[lang], sameAs: p.web, publisher: { '@type': 'Organization', name: 'MaroStory', url: SITE } }
+    : game
     ? { '@context': 'https://schema.org', '@type': 'VideoGame', name: t.name, alternateName: p.en.name, gamePlatform: 'Android', operatingSystem: 'Android', genre: t.genre, description: t.summary, url: SITE + alt[lang], downloadUrl: p.android, publisher: { '@type': 'Organization', name: 'MaroStory', url: SITE } }
     : { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: t.name, alternateName: p.en.name, operatingSystem: 'iOS, Android', applicationCategory: 'LifestyleApplication', description: t.summary, url: SITE + alt[lang], downloadUrl: [p.stores.ios, p.stores.android], publisher: { '@type': 'Organization', name: 'MaroStory', url: SITE } };
   const region = lang === 'en' && p.regionEn ? `<p class="region">${esc(p.regionEn)}</p>` : '';
@@ -179,7 +193,7 @@ ${shellHeader(lang, alt, { current: p.slug, autoHide: true })}
   <div class="wrap local-nav-row">
     <a class="local-id" href="#main">${icon(p.slug, '', 32)}<strong>${esc(t.name)}</strong></a>
     <nav class="local-links" aria-label="${esc(t.name)}">${sections.map(([id, label]) => `<a href="#${id}">${label}</a>`).join('')}</nav>
-    <a class="local-cta" href="#download">${game ? d.getGame : d.getApp}</a>
+    <a class="local-cta" href="#download">${game ? d.getGame : service ? d.getService : d.getApp}</a>
   </div>
 </div>
 <main id="main" class="product${game ? ' is-game' : ''}" style="--brand:${p.color};--brand-ink:${p.ink};--brand-soft:${p.soft ?? 'color-mix(in srgb, var(--brand) 10%, #fff)'}">
@@ -210,7 +224,7 @@ ${shellHeader(lang, alt, { current: p.slug, autoHide: true })}
       <div class="feature-rows">
         ${t.features.map((f, i) => `<article class="feature-row${i % 2 ? ' is-flip' : ''}">
           <div class="feature-copy"><span class="num">0${i + 1}</span><h3>${esc(f[0])}</h3><p>${esc(f[1])}</p></div>
-          <div class="feature-stage">${phone(local(f[2], lang) ?? shots[i % shots.length], f[0], 'loading="lazy"')}</div>
+          ${((img) => `<div class="feature-stage${isWide(img) ? ' is-wide' : ''}">${phone(img, f[0], 'loading="lazy"')}</div>`)(local(f[2], lang) ?? shots[i % shots.length])}
         </article>`).join('\n        ')}
       </div>
     </div>
@@ -247,7 +261,7 @@ ${end(lang, p.slug)}`;
 }
 
 const files = [['index.html', home('ko')], ['index_en.html', home('en')]];
-for (const p of [...apps.filter((a) => !a.page), ...games]) {
+for (const p of [...services, ...apps.filter((a) => !a.page), ...games]) {
   files.push([`project/${p.slug}.html`, product(p, 'ko')], [`project/${p.slug}-en.html`, product(p, 'en')]);
 }
 for (const [name, html] of files) {

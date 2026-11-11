@@ -167,6 +167,15 @@ svg { width: 1em; height: 1em; flex: none; }
 .feature-stage { background: var(--brand-soft); display: flex; justify-content: center; align-items: flex-start; padding: 56px 24px 0; height: clamp(420px, 40vw, 520px); overflow: hidden; }
 .feature-stage .phone { width: min(64%, 270px); }
 .is-game .feature-stage { background: var(--brand); }
+/* 웹 서비스의 PC 화면: 오른쪽으로 흘러나가게 크게 */
+.feature-stage.is-wide { align-items: center; justify-content: flex-start; padding: 40px 0 40px 40px; }
+.feature-row.is-flip .feature-stage.is-wide { justify-content: flex-end; padding: 40px 40px 40px 0; }
+.screen { display: block; width: 125%; max-width: none; border-radius: 14px; background: #fff; box-shadow: 0 30px 60px -24px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.08); }
+.feature-row.is-flip .screen { margin-left: -25%; }
+.store-web { background: var(--ink); border-color: var(--ink); color: #fff; }
+.store-web .store-os, .store-web svg { color: rgba(255,255,255,.6); }
+.store-web:hover { background: var(--cobalt); border-color: var(--cobalt); }
+.p-hero .store-web, .p-download .store-web { border-color: var(--ink); }
 
 /* Product: steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: s; }
@@ -216,6 +225,8 @@ svg { width: 1em; height: 1em; flex: none; }
   .feature-row, .feature-row.is-flip { grid-template-columns: 1fr; }
   .feature-row.is-flip .feature-copy { order: 0; }
   .feature-stage { height: 400px; }
+  .feature-stage.is-wide, .feature-row.is-flip .feature-stage.is-wide { height: auto; padding: 32px 0 32px 24px; justify-content: flex-start; }
+  .feature-row.is-flip .screen { margin-left: 0; }
 }
 @media (max-width: 520px) {
   .hero-cta .btn { flex: 1; }

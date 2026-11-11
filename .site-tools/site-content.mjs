@@ -284,6 +284,74 @@ export const apps = [
   },
 ];
 
+// 웹 서비스. 스토어 대신 웹 주소(web)로 연결한다. 홈·메뉴에서 앱·게임보다 먼저 나온다.
+export const services = [
+  {
+    slug: 'textake', color: '#ffd400', ink: '#0b0b0b', soft: '#fff7cc', regionEn: 'Currently available in Korean',
+    web: 'https://textake.marostory.com',
+    shots: ['textake-home', 'textake-example', 'textake-examples'],
+    heroShots: ['textake-home', 'textake-example', 'textake-examples'],
+    og: '/assets/site/og-textake.jpg',
+    support: `${ACCOUNT}/textake/support`,
+    ko: {
+      name: '텍스테이크', short: '글을 영상으로 만드는 AI 서비스', tagline: '글을 넣으면,\n영상이 나온다.',
+      summary: '공지, 패치노트, 주간 리포트를 붙여 넣으면 AI가 나레이션·자막·음악까지 넣은 모션그래픽 영상을 만들어요.',
+      problem: '공지나 리포트를 영상으로 만들려면 편집 툴을 열고, 장면을 짜고, 자막과 나레이션을 따로 입혀야 해요. 짧은 영상 하나에도 손이 많이 가죠.',
+      solution: '글을 붙여 넣고 ACTION만 누르면 AI 연출가가 콘티를 쓰고 장면을 채워요. 앞 장면부터 바로 재생되고, 말로 고친 뒤 MP4로 저장하거나 링크로 공유해요.',
+      featuresTitle: '붙여 넣고.\nACTION. 끝.',
+      features: [
+        ['붙여 넣으면 시작', '공지, 리포트, 패치노트 무엇이든 붙여 넣어요. 템플릿을 고르면 빈칸만 채우면 돼요.', 'textake-home'],
+        ['몇 초 만에 재생 시작', 'AI가 뒤 장면을 쓰는 동안 앞 장면부터 재생해요. 창을 닫아도 서버에서 끝까지 만들어요.', 'textake-wide-scenes'],
+        ['말로 고치고, 내보내기', '"30초로 줄여줘" 같은 말로 고치고, MP4로 저장하거나 링크 하나로 공유해요.', 'textake-wide-edit'],
+        ['여덟 가지 분위기, 세 가지 화면비', '테마를 바꾸면 배경·전환·강조 방식이 모두 바뀌어요. 16:9, 9:16, 1:1도 버튼 하나로 다시 배치돼요.', 'textake-example'],
+        ['숫자는 원문에서', '영상 속 숫자마다 원문 몇 번째 줄에서 왔는지, 계산값이면 계산식까지 보여 줘요.', 'textake-wide-source'],
+      ],
+      stepsTitle: '이렇게 만들어요.',
+      steps: [
+        ['붙여 넣고', '공지, 리포트, 기획서처럼 이미 쓴 글을 붙여 넣거나 템플릿을 골라요.'],
+        ['ACTION', 'AI 연출가가 콘티를 쓰고, 나레이션과 자막, 음악을 넣어 장면을 하나씩 채워요.'],
+        ['고치고, 내보내기', '말로 고치고, 테마와 화면비를 바꾼 뒤 MP4로 저장하거나 링크로 공유해요.'],
+      ],
+      cta: '오늘 쓴 공지,\n영상으로 보내 볼까요?',
+      faq: [
+        ['요금이 있나요?', '텍스테이크는 결제 없이 써요. 가입하고 이메일을 인증하면 20크레딧(60초 영상 약 4편)을 드리고, 광고를 보거나 쿠폰으로 크레딧을 더 받을 수 있어요.'],
+        ['크레딧은 어떻게 더 받나요?', '광고 1편을 끝까지 보면 3크레딧이 들어와요(하루 최대 10회, 30일 안에 사용). 쿠폰 코드는 마이페이지에서 입력해요. AI가 만들다 실패하면 쓴 크레딧은 자동으로 돌아와요.'],
+        ['어떤 글을 영상으로 만들 수 있나요?', '사내 공지, 주간 리포트, 신규 입사자 온보딩, 행사 안내, 교육 자료, 패치노트, 출시 소식, 채용 공고처럼 알리고 설명하는 글에 잘 맞아요.'],
+        ['설치해야 하나요?', '아니요. 웹 브라우저에서 바로 쓰고, 휴대폰에서도 만들고 저장·공유할 수 있어요. Google 계정이나 이메일로 가입해요.'],
+        ['AI가 만든 영상을 그대로 써도 되나요?', '콘티와 나레이션은 생성형 AI가 만들기 때문에 게시 전에 꼭 확인해 주세요. 내보낸 MP4에는 AI로 만들었다는 정보가 들어가요.'],
+      ],
+    },
+    en: {
+      name: 'TEXTAKE', short: 'AI text-to-video service', tagline: 'Paste your text.\nGet a video.',
+      summary: 'Paste an announcement, patch note or weekly report, and AI turns it into a motion-graphics video with narration, captions and music.',
+      problem: 'Turning an announcement or report into a video means opening an editor, planning scenes and adding captions and narration by hand. Even a short video takes a lot of work.',
+      solution: 'Paste your text and hit ACTION. An AI director writes the storyboard and fills in the scenes, playback starts right away, and you can edit with plain words, then save an MP4 or share a link.',
+      featuresTitle: 'Paste. ACTION.\nDone.',
+      features: [
+        ['Paste to start', 'Announcements, reports, patch notes — paste anything. Pick a template and just fill in the blanks.', 'textake-home'],
+        ['Playback in seconds', 'Earlier scenes start playing while AI writes the rest. Close the window and the server keeps building.', 'textake-wide-scenes'],
+        ['Edit with words, then export', 'Ask for changes like "make it 30 seconds", then save an MP4 or share a single link.', 'textake-wide-edit'],
+        ['Eight moods, three ratios', 'Switch themes to change backgrounds, transitions and emphasis. 16:9, 9:16 and 1:1 re-layout with one tap.', 'textake-example'],
+        ['Numbers from your source', 'Every number in the video shows which line of your text it came from, with the formula for calculated values.', 'textake-wide-source'],
+      ],
+      stepsTitle: 'How it works.',
+      steps: [
+        ['Paste', 'Paste text you already wrote, such as an announcement, report or plan, or pick a template.'],
+        ['ACTION', 'An AI director writes the storyboard and adds narration, captions and music scene by scene.'],
+        ['Edit and export', 'Edit with words, switch theme and aspect ratio, then save an MP4 or share a link.'],
+      ],
+      cta: 'Turn today’s announcement\ninto a video.',
+      faq: [
+        ['Which languages are supported?', 'TEXTAKE is currently available in Korean.'],
+        ['Does it cost anything?', 'TEXTAKE is free to use, with no payment. Sign up and verify your email to get 20 credits (about four 60-second videos), and earn more by watching ads or redeeming coupons.'],
+        ['How do I get more credits?', 'Watch an ad to the end for 3 credits (up to 10 times a day, used within 30 days). Enter coupon codes on My Page. If AI fails while creating, the credits come back automatically.'],
+        ['Do I need to install anything?', 'No. It runs in your web browser, including on phones. Sign up with Google or email.'],
+        ['Can I publish AI videos as they are?', 'The storyboard and narration are made by generative AI, so please review before publishing. Exported MP4s include information that they were made with AI.'],
+      ],
+    },
+  },
+];
+
 const shots = (slug, n) => ({
   shots: Array.from({ length: n }, (_, i) => `${slug}-ko-0${i + 1}`),
   shotsEn: Array.from({ length: n }, (_, i) => `${slug}-en-0${i + 1}`),
@@ -614,16 +682,17 @@ export const copy = {
   ko: {
     htmlLang: 'ko', home: '/', locale: 'ko_KR',
     title: '마로스토리 MaroStory — 일상을 위한 앱과 게임',
-    description: '마로스토리는 생활 속 작은 불편을 푸는 앱과, 짧은 틈을 즐겁게 채우는 게임을 만드는 스튜디오입니다.',
-    nav: { apps: '앱', games: '게임', studio: '스튜디오', contact: '문의', all: { apps: '앱 전체 보기', games: '게임 전체 보기' } },
+    description: '마로스토리는 생활 속 작은 불편을 푸는 앱과 웹 서비스, 짧은 틈을 즐겁게 채우는 게임을 만드는 스튜디오입니다.',
+    nav: { services: '서비스', apps: '앱', games: '게임', studio: '스튜디오', contact: '문의', all: { services: '서비스 전체 보기', apps: '앱 전체 보기', games: '게임 전체 보기' } },
     navLabel: '주요 메뉴', homeLabel: '마로스토리 홈', skip: '본문으로 이동', menu: '메뉴',
     hero: { title: '일상의 작은 불편은 앱으로,\n잠깐의 틈은 게임으로.', lead: '마로스토리는 매일 손이 가는 앱과\n가볍게 즐기는 게임을 만드는 스튜디오입니다.', apps: '앱 둘러보기', games: '게임 둘러보기' },
+    services: { eyebrow: 'Services', title: '설치 없이\n바로 쓰는 서비스', lead: '웹 브라우저에서 바로 시작해요.' },
     apps: { eyebrow: 'Apps', title: '생활 속 불편에서\n시작한 앱', lead: '한 가지 일을 잘하는 앱을 만듭니다.' },
     games: { eyebrow: 'Games', title: '짧은 틈을 채우는\n게임', lead: '규칙은 쉽고, 한 판 더 하고 싶어지는 게임을 만듭니다.' },
     studio: {
       eyebrow: 'Studio', title: '작고 분명한 것을,\n오래 쓰이게.',
       body: [
-        '마로스토리는 앱과 게임을 만드는 스튜디오입니다. 생활 속에서 반복되는 작은 불편을 찾아 앱으로 풀고, 잠깐의 틈을 즐겁게 채울 게임을 만듭니다.',
+        '마로스토리는 앱과 웹 서비스, 게임을 만드는 스튜디오입니다. 생활 속에서 반복되는 작은 불편을 찾아 앱과 서비스로 풀고, 잠깐의 틈을 즐겁게 채울 게임을 만듭니다.',
         '기획부터 디자인, 개발, 출시와 운영까지 한곳에서 이어서 하기 때문에, 이용자의 목소리가 다음 업데이트에 빠르게 닿습니다.',
       ],
       values: [
@@ -642,10 +711,10 @@ export const copy = {
     },
     detail: {
       more: '자세히 보기', intro: '소개', story: '이야기', features: '주요 기능', how: '사용 방법', play: '플레이 방법', faq: '자주 묻는 질문',
-      faqTitle: '궁금한 점이\n있으신가요?', problem: '이런 불편, 있으셨죠?', solution: '그래서 이렇게 만들었어요', ask: '문의하기', getApp: '앱 받기', getGame: '게임 받기',
+      faqTitle: '궁금한 점이\n있으신가요?', problem: '이런 불편, 있으셨죠?', solution: '그래서 이렇게 만들었어요', ask: '문의하기', getApp: '앱 받기', getGame: '게임 받기', getService: '시작하기',
     },
-    more: { apps: '마로스토리의 다른 앱', games: '마로스토리의 다른 게임' },
-    store: { ios: 'App Store', android: 'Google Play' },
+    more: { apps: '마로스토리의 다른 앱', games: '마로스토리의 다른 게임', services: '마로스토리의 앱' },
+    store: { ios: 'App Store', android: 'Google Play', web: '바로 시작하기' },
     footer: {
       terms: ['이용약관', '/terms.html'], privacy: ['개인정보처리방침', `${ACCOUNT}/privacy`],
       business: ['상호 : 마로스토리', '대표 : 민순오', '사업자등록번호 : 791-76-00469', '통신판매업 신고번호 : 제2026-용인기흥-00080호'],
@@ -656,16 +725,17 @@ export const copy = {
   en: {
     htmlLang: 'en', home: '/en', locale: 'en_US',
     title: 'MaroStory — Apps and games for everyday life',
-    description: 'MaroStory is a studio making apps that solve small everyday hassles and games that fill your spare moments.',
-    nav: { apps: 'Apps', games: 'Games', studio: 'Studio', contact: 'Contact', all: { apps: 'All apps', games: 'All games' } },
+    description: 'MaroStory is a studio making apps and web services that solve small everyday hassles, and games that fill your spare moments.',
+    nav: { services: 'Services', apps: 'Apps', games: 'Games', studio: 'Studio', contact: 'Contact', all: { services: 'All services', apps: 'All apps', games: 'All games' } },
     navLabel: 'Main navigation', homeLabel: 'maro.story home', skip: 'Skip to content', menu: 'Menu',
     hero: { title: 'Apps for the little things.\nGames for the in-between.', lead: 'MaroStory is a studio making apps you reach for every day\nand games you can enjoy in a spare moment.', apps: 'Explore apps', games: 'Explore games' },
+    services: { eyebrow: 'Services', title: 'Services you can\nuse right away', lead: 'Nothing to install. Start in your browser.' },
     apps: { eyebrow: 'Apps', title: 'Apps that start with\nan everyday hassle', lead: 'Each app does one thing, and does it well.' },
     games: { eyebrow: 'Games', title: 'Games for\nthe in-between', lead: 'Easy to learn, and always one more round.' },
     studio: {
       eyebrow: 'Studio', title: 'Small, clear things,\nmade to last.',
       body: [
-        'MaroStory is a studio that makes apps and games. We look for the small hassles that repeat in everyday life and solve them with apps, and we make games that turn spare moments into fun ones.',
+        'MaroStory is a studio that makes apps, web services and games. We look for the small hassles that repeat in everyday life and solve them with apps and services, and we make games that turn spare moments into fun ones.',
         'Planning, design, development, launch and operations all happen in one place, so what you tell us reaches the next update quickly.',
       ],
       values: [
@@ -684,10 +754,10 @@ export const copy = {
     },
     detail: {
       more: 'Learn more', intro: 'Overview', story: 'Story', features: 'Features', how: 'How it works', play: 'How to play', faq: 'FAQ',
-      faqTitle: 'Questions?', problem: 'Sound familiar?', solution: 'So we made this', ask: 'Contact us', getApp: 'Get the app', getGame: 'Get the game',
+      faqTitle: 'Questions?', problem: 'Sound familiar?', solution: 'So we made this', ask: 'Contact us', getApp: 'Get the app', getGame: 'Get the game', getService: 'Get started',
     },
-    more: { apps: 'More apps from MaroStory', games: 'More games from MaroStory' },
-    store: { ios: 'App Store', android: 'Google Play' },
+    more: { apps: 'More apps from MaroStory', games: 'More games from MaroStory', services: 'Apps from MaroStory' },
+    store: { ios: 'App Store', android: 'Google Play', web: 'Get started' },
     footer: {
       terms: ['Terms of Service', '/terms_en.html'], privacy: ['Privacy Policy', `${ACCOUNT}/privacy_en.html`],
       business: ['Business Name: MaroStory', 'Representative: Soon-O Min', 'Business Registration: 791-76-00469', 'Mail-Order Business Registration No.: 제2026-용인기흥-00080호'],

@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
-import { apps, games } from './site-content.mjs';
+import { services, apps, games } from './site-content.mjs';
 
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_PATH ?? path.join(homedir(), 'dev/portpolio/build/node_modules/playwright'));
@@ -14,7 +14,7 @@ const FONT = 'https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/
 
 const copy = { ko: ['일상의 작은 불편은 앱으로,', '잠깐의 틈은 게임으로.'], en: ['Apps for the little things.', 'Games for the in-between.'] };
 const dataUri = async (file, type) => `data:${type};base64,${(await readFile(path.join(ROOT, file))).toString('base64')}`;
-const icons = await Promise.all([...apps, ...games].map((p) => dataUri(`assets/site/img/icon-${p.slug}.webp`, 'image/webp')));
+const icons = await Promise.all([...services, ...apps, ...games].map((p) => dataUri(`assets/site/img/icon-${p.slug}.webp`, 'image/webp')));
 
 const browser = await chromium.launch({ executablePath });
 for (const lang of ['ko', 'en']) {

@@ -98,6 +98,14 @@
       {
         "source": "/project/postcardmetro/en",
         "destination": "/project/postcardmetro-en.html"
+      },
+      {
+        "source": "/project/textake",
+        "destination": "/project/textake.html"
+      },
+      {
+        "source": "/project/textake/en",
+        "destination": "/project/textake-en.html"
       }
     ],
     "headers": [
@@ -344,6 +352,26 @@
       {
         "source": "/project/postcardmetro/en/",
         "destination": "/project/postcardmetro/en",
+        "type": 301
+      },
+      {
+        "source": "/project/textake.html",
+        "destination": "/project/textake",
+        "type": 301
+      },
+      {
+        "source": "/project/textake/",
+        "destination": "/project/textake",
+        "type": 301
+      },
+      {
+        "source": "/project/textake-en.html",
+        "destination": "/project/textake/en",
+        "type": 301
+      },
+      {
+        "source": "/project/textake/en/",
+        "destination": "/project/textake/en",
         "type": 301
       },
       {
