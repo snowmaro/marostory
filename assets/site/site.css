@@ -68,12 +68,12 @@ svg { width: 1em; height: 1em; flex: none; }
 .hero h1 { font-size: clamp(34px, 4.6vw, 62px); line-height: 1.18; letter-spacing: -0.035em; font-weight: 800; }
 .hero-lead { margin-top: 26px; font-size: clamp(17px, 1.7vw, 20px); }
 .hero-cta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; }
-.icon-wall { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.8vw, 22px); }
+.icon-wall { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: clamp(10px, 1.6vw, 20px); }
+.icon-wall.is-offset li:nth-child(1) { grid-column: 2; }
 .icon-wall li { aspect-ratio: 1; animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i) * 55ms); }
 .icon-wall a { display: block; height: 100%; border-radius: 24%; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 12px 32px -12px color-mix(in srgb, var(--brand) 70%, transparent); transition: transform .25s cubic-bezier(.2,.7,.2,1); }
 .icon-wall a:hover { transform: translateY(-4px) scale(1.03); }
-.icon-wall li:nth-child(4n+2), .icon-wall li:nth-child(4n+4) { translate: 0 28px; }
-.icon-wall li:nth-child(1) { grid-column: 2; }
+.icon-wall li[data-shift] { translate: 0 24px; }
 .icon-wall img { width: 100%; height: 100%; object-fit: cover; }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 

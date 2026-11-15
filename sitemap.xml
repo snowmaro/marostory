@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://marostory.com/</loc><lastmod>2026-11-03</lastmod></url>
-  <url><loc>https://marostory.com/en</loc><lastmod>2026-11-03</lastmod></url>
+  <url><loc>https://marostory.com/</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://marostory.com/en</loc><lastmod>2026-11-15</lastmod></url>
   <url><loc>https://marostory.com/project/textake</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://marostory.com/project/textake/en</loc><lastmod>2026-11-03</lastmod></url>
   <url><loc>https://marostory.com/project/pikmade</loc><lastmod>2026-10-29</lastmod></url>
@@ -24,4 +24,8 @@
   <url><loc>https://marostory.com/project/archery/en</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://marostory.com/project/postcardmetro</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://marostory.com/project/postcardmetro/en</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://marostory.com/project/lighteveryroom</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://marostory.com/project/lighteveryroom/en</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://marostory.com/project/detectivepip</loc><lastmod>2026-11-15</lastmod></url>
+  <url><loc>https://marostory.com/project/detectivepip/en</loc><lastmod>2026-11-15</lastmod></url>
 </urlset>

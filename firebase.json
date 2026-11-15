@@ -106,6 +106,22 @@
       {
         "source": "/project/textake/en",
         "destination": "/project/textake-en.html"
+      },
+      {
+        "source": "/project/lighteveryroom",
+        "destination": "/project/lighteveryroom.html"
+      },
+      {
+        "source": "/project/lighteveryroom/en",
+        "destination": "/project/lighteveryroom-en.html"
+      },
+      {
+        "source": "/project/detectivepip",
+        "destination": "/project/detectivepip.html"
+      },
+      {
+        "source": "/project/detectivepip/en",
+        "destination": "/project/detectivepip-en.html"
       }
     ],
     "headers": [
@@ -372,6 +388,46 @@
       {
         "source": "/project/textake/en/",
         "destination": "/project/textake/en",
+        "type": 301
+      },
+      {
+        "source": "/project/lighteveryroom.html",
+        "destination": "/project/lighteveryroom",
+        "type": 301
+      },
+      {
+        "source": "/project/lighteveryroom/",
+        "destination": "/project/lighteveryroom",
+        "type": 301
+      },
+      {
+        "source": "/project/lighteveryroom-en.html",
+        "destination": "/project/lighteveryroom/en",
+        "type": 301
+      },
+      {
+        "source": "/project/lighteveryroom/en/",
+        "destination": "/project/lighteveryroom/en",
+        "type": 301
+      },
+      {
+        "source": "/project/detectivepip.html",
+        "destination": "/project/detectivepip",
+        "type": 301
+      },
+      {
+        "source": "/project/detectivepip/",
+        "destination": "/project/detectivepip",
+        "type": 301
+      },
+      {
+        "source": "/project/detectivepip-en.html",
+        "destination": "/project/detectivepip/en",
+        "type": 301
+      },
+      {
+        "source": "/project/detectivepip/en/",
+        "destination": "/project/detectivepip/en",
         "type": 301
       },
       {

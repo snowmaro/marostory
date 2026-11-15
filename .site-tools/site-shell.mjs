@@ -2,7 +2,7 @@
 // 픽메이드 페이지(build-pikmade.mjs)도 이 모듈을 쓰므로 클래스는 ms- 접두사로 분리한다.
 import { EMAIL, services, apps, games, copy, productPath } from './site-content.mjs';
 
-export const SHELL_V = '20261103a';
+export const SHELL_V = '20261115a';
 export const FONT_CSS = 'https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css';
 const IMG = '/assets/site/img/';
 // 로고(브랜드 키트 ~/dev/snow_design/marostory-brand에서 복사). 기본 표기는 코발트 마침표(color).
@@ -36,7 +36,7 @@ function group(lang, key, items, current) {
       <button class="ms-nav-top" type="button" aria-expanded="false" aria-controls="ms-sub-${key}">${c.nav[key]}${chevron}</button>
       <div class="ms-sub" id="ms-sub-${key}">
         <div class="ms-wrap ms-sub-inner">
-          <ul class="ms-sub-list">
+          <ul class="ms-sub-list" style="--n:${items.length > 6 ? Math.ceil(items.length / 2) : Math.max(items.length, 5)}">
             ${items.map((p) => `<li><a href="${productPath(p, lang)}"${p.slug === current ? ' aria-current="page"' : ''}><img src="${IMG}icon-${p.slug}.webp" alt="" width="44" height="44"><span><strong>${esc(p[lang].name)}</strong><small>${esc(p[lang].short)}</small></span></a></li>`).join('\n            ')}
           </ul>
           <a class="ms-sub-all" href="${c.home}#${key}">${c.nav.all[key]}${arrow}</a>

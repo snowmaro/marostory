@@ -5,7 +5,7 @@ import { SITE, EMAIL, services, apps, games, copy, productPath } from './site-co
 import { shellHead, shellHeader, shellMore, shellFooter, iconLinks } from './site-shell.mjs';
 
 const root = new URL('../', import.meta.url);
-const V = '20261103a';
+const V = '20261115b';
 const IMG = '/assets/site/img/';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -73,6 +73,11 @@ ${shellFooter(lang)}
 `;
 
 /* ---------- Home ---------- */
+// 첫 화면 아이콘 벽: 12개가 넘으면 5열. 남는 칸이 있으면 첫 칸을 비우고, 홀수 번째 열(2·4열)을 아래로 내려 엇갈리게 한다.
+const wallCount = services.length + apps.length + games.length;
+const wallCols = wallCount > 12 ? 5 : 4;
+const wallOffset = wallCount % wallCols ? 1 : 0;
+const iconWallOpen = `<ul class="icon-wall${wallOffset ? ' is-offset' : ''}" style="--cols:${wallCols}">`;
 function home(lang) {
   const c = copy[lang];
   const alt = { ko: '/', en: '/en' };
@@ -116,8 +121,8 @@ ${shellHeader(lang, alt, { onHome: true })}
         <p class="hero-lead">${br(c.hero.lead)}</p>
         <div class="hero-cta"><a class="btn btn-dark" href="#apps">${c.hero.apps}</a><a class="btn btn-line" href="#games">${c.hero.games}</a></div>
       </div>
-      <ul class="icon-wall">
-        ${[...services, ...apps, ...games].map((p, i) => `<li style="--i:${i};--brand:${p.color}"><a href="${productPath(p, lang)}" aria-label="${esc(p[lang].name)}"><img src="${IMG}icon-${p.slug}.webp" alt="" width="128" height="128"></a></li>`).join('\n        ')}
+      ${iconWallOpen}
+        ${[...services, ...apps, ...games].map((p, i) => `<li style="--i:${i};--brand:${p.color}"${(i + wallOffset) % wallCols % 2 ? ' data-shift' : ''}><a href="${productPath(p, lang)}" aria-label="${esc(p[lang].name)}"><img src="${IMG}icon-${p.slug}.webp" alt="" width="128" height="128"></a></li>`).join('\n        ')}
       </ul>
     </div>
   </section>
@@ -187,7 +192,7 @@ function product(p, lang) {
   const sections = [['intro', game ? d.story : d.intro], ['features', d.features], ['how', game ? d.play : d.how], ['faq', d.faq]];
   const heroShots = heroOf(p, lang);
 
-  return `${head(lang, { title, description: t.summary, path: alt[lang], alt, image: p.og ? p.og : `/assets/site/og-${lang}.jpg`, schema })}
+  return `${head(lang, { title, description: t.summary, path: alt[lang], alt, image: local(p.og, lang) ?? `/assets/site/og-${lang}.jpg`, schema })}
 ${shellHeader(lang, alt, { current: p.slug, autoHide: true })}
 <div class="local-nav" style="--brand:${p.color};--brand-ink:${p.ink}">
   <div class="wrap local-nav-row">
